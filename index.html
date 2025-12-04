@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Metrika Agency | Social Media Marketing</title>
+  <meta name="description" content="Agencia especializada en Social Media Marketing, anuncios y branding. Creamos presencia y resultados reales."/>
+  https://fonts.googleapis.com
+  https://fonts.gstatic.com
+  https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap
+  <style>
+    :root{
+      --bg:#0b0c10;
+      --bg2:#111317;
+      --card:#16181f;
+      --text:#e6e6e6;
+      --muted:#a9abb3;
+      --primary:#7c5cff; /* violeta elegante */
+      --accent:#00d4ff;  /* cian para detalles */
+      --success:#22c55e;
+      --danger:#ef4444;
+      --shadow: 0 10px 30px rgba(0,0,0,.45);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
+    a{color:var(--accent);text-decoration:none}
+    header{position:sticky;top:0;z-index:50;background:rgba(11,12,16,.6);backdrop-filter:blur(8px);border-bottom: 1px solid #1f2230}
+    .container{max-width:1120px;margin:0 auto;padding:0 24px}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .logo{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.4px}
+    .logo-dot{width:12px;height:12px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));box-shadow:0 0 18px rgba(124,92,255,.6)}
+    .nav-cta{display:flex;gap:12px}
+    .btn{padding:10px 16px;border-radius:10px;border:1px solid #2a2e3f;background:#151826;color:var(--text);transition:.2s;cursor:pointer}
+    .btn:hover{transform:translateY(-1px);border-color:#3a4059}
+    .btn-primary{background:linear-gradient(135deg,var(--primary),#5a3bff);border:none;box-shadow:0 8px 20px rgba(124,92,255,.35)}
+    .btn-primary:hover{filter:brightness(1.08)}
+    .btn-outline{background:transparent;border:1px solid #2a2e3f}
+    /* Hero */
+    .hero{padding:72px 0 48px;display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
+    .tag{display:inline-flex;align-items:center;gap:8px;background:#12131a;border:1px solid #25283a;color:var(--muted);padding:8px 12px;border-radius:999px;font-size:14px}
+    .tag .pulse{width:8px;height:8px;border-radius:50%;background:var(--success);box-shadow:0 0 12px rgba(34,197,94,.8)}
+    h1{font-size:40px;line-height:1.14;margin:16px 0}
+    .lead{color:var(--muted);font-size:18px}
+    .hero-cta{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
+    .card{background:linear-gradient(180deg,#131521,#10121a);border:1px solid #23263a;border-radius:16px;box-shadow:var(--shadow)}
+    .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+    .metric{padding:14px;text-align:center;border-radius:14px;background:#121424;border:1px solid #222538}
+    .metric h3{margin:4px 0 6px;font-size:22px;color:#cfd2ff}
+    .metric p{margin:0;color:var(--muted);font-size:13px}
+    .preview{aspect-ratio:16/10;border-radius:16px;border:1px solid #24273b;background:
+      radial-gradient(1000px 400px at -20% -10%, rgba(124,92,255,.22), transparent 35%),
+      radial-gradient(800px 300px at 120% 120%, rgba(0,212,255,.18), transparent 35%),
+      #0f1119;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .preview img{width:100%;height:100%;object-fit:cover;opacity:.35;filter:saturate(1.2)}
+    /* Secciones */
+    section{padding:56px 0}
+    .section-title{font-size:26px;margin-bottom:16px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .service{padding:18px;border-radius:16px;background:#121424;border:1px solid #222538}
+    .service h3{margin:8px 0;color:#d9dbff}
+    .service p{margin:0;color:var(--muted)}
+    .badge{display:inline-block;padding:6px 10px;font-size:12px;border:1px solid #2a2e3f;border-radius:999px;color:#b7b9c6}
+    /* Testimonios */
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .testimonial{padding:18px;border-radius:16px;background:#121424;border:1px solid #222538}
+    .testimonial p{color:#cdd0dd}
+    .testimonial .who{color:#8e92a6;font-size:14px}
+    /* Contacto */
+    .contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    form{display:grid;gap:12px}
+    input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid #2a2e3f;background:#0f121b;color:var(--text)}
+    textarea{min-height:120px;resize:vertical}
+    .form-foot{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    .contact-card{padding:18px;border-radius:16px;background:#121424;border:1px solid #222538}
+    .contact-row{display:flex;align-items:center;gap:10px;margin:8px 0;color:#cfd2ff}
+    .contact-row a{color:#cfd2ff}
+    /* WhatsApp fab */
+    .fab{position:fixed;right:22px;bottom:22px;display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:999px;background:#1b1f2f;border:1px solid #2a2e3f;box-shadow:var(--shadow)}
+    .fab .dot{width:10px;height:10px;border-radius:50%;background:#25D366;box-shadow:0 0 12px rgba(37,211,102,.8)}
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      .contact-wrap{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <span class="logo-dot"></span>
+        <span>Metrika Agency</span>
+      </div>
+      <div class="nav-cta">
+        #serviciosServicios</a>
+        #contactoContactar</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <div class="container">
+    <section class="hero">
+      <div>
+        <span class="tag"><span class="pulse"></span> Entregas en tiempo récord</span>
+        <h1>Social Media Marketing que <span style="background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent">impulsa ventas</span> y construye marca.</h1>
+        <p class="lead">Planeamos, producimos y optimizamos tu presencia digital. De campañas a automatizaciones: resultados medibles, rápido.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="https://wa.me/525625862220?text=Hola%20Metrika%20Agency,%20quiero%20información%20sobre%20gestión%20de%20redes%20y%20anuncios." target="_Ver trabajos</a>
+        </div>
+        <div class="metrics">
+          <div class="metric">
+            <h3>+120</h3><p>Campañas lanzadas</p>
+          </div>
+          <div class="metric">
+            <h3>+35</h3><p>Marcas gestionadas</p>
+          </div>
+          <div class="metric">
+            <h3>48 h</h3><p>Web + automatización</p>
+          </div>
+        </div>
+      </div>
+      <div class="card preview">
+        <!-- Sustituye la imagen por capturas de tus proyectos -->
+        https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1400&auto=format&fit=crop
+      </div>
+    </section>
+  </div>
+
+  <!-- Servicios -->
+  <section id="servicios">
+    <div class="container">
+      <h2 class="section-title">Servicios</h2>
+      <div class="grid-3">
+        <div class="service">
+          <span class="badge">Social Media</span>
+          <h3>Gestión de Redes</h3>
+          <p>Calendarios de contenido, comunidad, y métricas. Optimización constante para crecer audiencia y conversiones.</p>
+        </div>
+        <div class="service">
+          <span class="badge">Ads</span>
+          <h3>Anuncios Pagos</h3>
+          <p>Meta, Google y TikTok Ads con creatividades que convierten. Segmentación precisa y reporte claro.</p>
+        </div>
+        <div class="service">
+          <span class="badge">Branding</span>
+          <h3>Identidad & Web</h3>
+          <p>Landing pages rápidas, diseño consistente y mensajes persuasivos alineados a objetivos de negocio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section id="testimonios">
+    <div class="container">
+      <h2 class="section-title">Testimonios</h2>
+      <div class="grid-2">
+        <div class="testimonial">
+          <p>“En dos semanas duplicamos leads con su estrategia de contenido y campaña local. Comunicación impecable.”</p>
+          <div class="who">— Laura R., Retail</div>
+        </div>
+        <div class="testimonial">
+          <p>“Nos entregaron landing + automatización en 48 horas. Ya es parte clave de nuestro funnel.”</p>
+          <div class="who">— Carlos M., Inmobiliaria</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto">
+    <div class="container">
+      <h2 class="section-title">Contacto</h2>
+      <div class="contact-wrap">
+        <form id="contactForm">
+          <input type="text" name="nombre" placeholder="Tu nombre" required>
+          <input type="email" name="email" placeholder="Tu email" required>
+          <textarea name="mensaje" placeholder="Cuéntanos lo que necesitas" required></textarea>
+          <div class="form-foot">
+            <button class="btn btn-primary" type="submit">Enviar</button>
+            <span style="color:var(--muted)">O escríbenos directo por WhatsApp.</span>
+          </div>
+          <p id="formMsg" style="display:none;color:var(--success)">¡Gracias! Te contactaremos en breve.</p>
+        </form>
+
+        <div class="contact-card">
+          <div class="contact-row">📧 mailto:diegoazuara@metrikagency.comdiegoazuara@metrikagency.com</a></div>
+          <div class="contact-row">📞 tel:+525625862220+52 56 2586 2220</a></div>
+          <div class="contact-row">💬 https://wa.me/525625862220WhatsApp directo</a></div>
+          <div class="contact-row">📍 CDMX — Atención a México y LATAM</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="padding:24px 0;border-top:1px solid #222538;background:#0e1017">
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="logo-dot"></span>
+        <strong>Metrika Agency</strong>
+      </div>
+      <div style="color:#8e92a6">© <span id="year"></span> Metrika Agency. Todos los derechos reservados.</div>
+    </div>
+  </footer>
+
+  <!-- FAB WhatsApp -->
+  <ttps://wa.me/525625862220?text=Hola%20Metrika%20Agency,%20me%20interesa%20social%20media%20y%20anuncios.
+    <span class="dot"></span>
+    <span>WhatsApp</span>
+  </a>
+
+  <script>
+    // Año dinámico
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Envío básico del formulario (sin backend): solo muestra mensaje de éxito.
+    // Si quieres que envíe a tu correo sin backend, te recomiendo Formspree (gratis).
+    document.getElementById('contactForm').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const msg = document.getElementById('formMsg');
+      msg.style.display = 'block';
+      setTimeout(()=>{ msg.style.display='none'; }, 4000);
+      e.target.reset();
+    });
+  </  </script>
+</body>

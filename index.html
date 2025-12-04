@@ -1,129 +1,152 @@
+
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Metrika Agency | Social Media Marketing</title>
-  <meta name="description" content="Agencia de Social Media Marketing en CDMX. Contenido, anuncios y automatizaciones con entregas en tiempo récord." />
+  <meta name="description" content="Agencia de Social Media Marketing. Contenido, anuncios y automatizaciones con entregas en tiempo récord.">
+  <meta property="og:title" content="Metrika Agency"/>
+  <meta property="og:description" content="Contenido, anuncios y automatizaciones que impulsan ventas."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1600&auto=format&fit=crop"/>
+  <meta property="og:url" content="https://metrika-agency.vercel.app"/>
   https://fonts.googleapis.com
-  https://fonts.gstatic.com
-  https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap
+  <link rel="preconnect" href="https://fontsgoogleapis.com/css2?family=Inter:wght@400;600;800&display=swap
   <style>
-    /* Reset y accesibilidad visual */
+    :root{
+      --bg:#0b0c10; --bg2:#121317;
+      --surface:#121421; --card:#151924;
+      --text:#e9e9ee; --muted:#a7abba;
+      --primary:#7c5cff; --accent:#00d4ff;
+      --border:#24283a; --shadow:0 12px 28px rgba(0,0,0,.35);
+      --sp-1:8px; --sp-2:12px; --sp-3:16px; --sp-4:20px; --sp-5:28px; --sp-6:40px;
+      --r-1:10px; --r-2:14px; --r-3:16px;
+    }
     *,*::before,*::after{box-sizing:border-box}
     html,body{margin:0;padding:0}
     img{max-width:100%;display:block}
     a{text-decoration:none;color:inherit}
-    :root{
-      --bg:#0b0c10; --bg2:#121317;
-      --card:#151924; --text:#e9e9ee; --muted:#a7abba;
-      --primary:#7c5cff; --accent:#00d4ff; --border:#24283a;
-    }
     body{
       font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-      color:var(--text);
-      background: linear-gradient(180deg,var(--bg),var(--bg2));
-      line-height:1.5;
+      background:linear-gradient(180deg,var(--bg),var(--bg2));
+      color:var(--text); line-height:1.5;
       -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
     }
-    /* Fondo sutil con acentos (evitar encimado en móvil) */
-    .bg-decor::before, .bg-decor::after{
-      content:""; position:fixed; inset:0; pointer-events:none; z-index:-1;
-    }
-    .bg-decor::before{
-      background: radial-gradient(800px 400px at 15% -10%, rgba(124,92,255,.12), transparent 40%);
-    }
-    .bg-decor::after{
-      background: radial-gradient(700px 350px at 110% 110%, rgba(0,212,255,.10), transparent 40%);
-    }
-
-    .container{max-width:1100px;margin:0 auto;padding:0 24px}
+    .container{max-width:1140px;margin:0 auto;padding:0 var(--sp-4)}
     header{
-      position:sticky; top:0; z-index:20;
+      position:sticky; top:0; z-index:30;
       background:rgba(11,12,16,.75); backdrop-filter:blur(8px);
       border-bottom:1px solid var(--border);
     }
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
     .logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px}
     .logo-dot{width:12px;height:12px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));box-shadow:0 0 14px rgba(124,92,255,.6)}
-    .nav-actions{display:flex;gap:10px}
-    .btn{padding:10px 14px;border-radius:10px;border:1px solid var(--border);background:#121421;color:var(--text);cursor:pointer;transition:.2s}
+    .menu{display:flex;gap:var(--sp-3);align-items:center}
+    .menu a{color:var(--muted)}
+    .menu a:hover{color:#cfd2ff}
+    .btn{
+      padding:10px 14px;border-radius:var(--r-1);
+      border:1px solid var(--border); background:var(--surface);
+      color:var(--text); transition:.2s; cursor:pointer;
+    }
     .btn:hover{transform:translateY(-1px);border-color:#32364e}
-    .btn-primary{background:linear-gradient(135deg,var(--primary),#5a3bff);border:none;box-shadow:0 8px 18px rgba(124,92,255,.30)}
-
-    /* Hero */
-    .hero{padding:64px 0 40px;display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
-    .tag{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#121421;border:1px solid var(--border);color:var(--muted);font-size:14px}
-    .pulse{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 10px rgba(34,197,94,.8)}
-    h1{font-size:clamp(28px,4.8vw,52px);line-height:1.2;margin:16px 0;overflow-wrap:anywhere}
-    .lead{color:var(--muted);font-size:clamp(16px,2.2vw,19px)}
-    .hero-cta{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
-    .preview{border:1px solid var(--border);border-radius:16px;overflow:hidden;background:#0f1118;box-shadow:0 12px 28px rgba(0,0,0,.35);aspect-ratio:16/10;display:flex;align-items:center;justify-content:center}
-    .preview img{width:100%;height:100%;object-fit:cover;opacity:.6;filter:saturate(1.1)}
-
-    /* Secciones */
-    section{padding:52px 0}
-    .section-title{font-size:clamp(22px,3vw,28px);margin-bottom:16px}
-    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .card{background:linear-gradient(180deg,#141825,#111420);border:1px solid var(--border);border-radius:14px;padding:18px}
-    .card h3{margin:8px 0;color:#dfe1ff;font-size:18px}
-    .card p{margin:0;color:var(--muted);font-size:14px}
-    .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
-    .metric{text-align:center;padding:14px;border-radius:12px;border:1px solid var(--border);background:#10131d}
+    .btn-primary{
+      background:linear-gradient(135deg,var(--primary),#5a3bff); border:none;
+      box-shadow:0 8px 18px rgba(124,92,255,.30);
+    }
+    .hero{padding:var(--sp-6) 0 var(--sp-5);display:grid;grid-template-columns:1.05fr .95fr;gap:var(--sp-5);align-items:center}
+    .tag{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--border);color:var(--muted);font-size:14px}
+    .pulse{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 10px rgba(34,197,94,.85)}
+    h1{font-size:clamp(30px,5.2vw,56px);line-height:1.15;margin:16px 0;overflow-wrap:anywhere}
+    .lead{color:var(--muted);font-size:clamp(16px,2.3vw,20px)}
+    .hero-cta{display:flex;gap:var(--sp-3);margin-top:var(--sp-3);flex-wrap:wrap}
+    .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-3);margin-top:var(--sp-3)}
+    .metric{padding:14px;text-align:center;border-radius:var(--r-1);border:1px solid var(--border);background:#10131d}
     .metric h3{margin:4px 0 6px;font-size:22px;color:#cfd2ff}
     .metric p{margin:0;color:var(--muted);font-size:13px}
-
-    /* Testimonios */
-    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .testimonial{padding:18px;border-radius:14px;border:1px solid var(--border);background:#121421}
+    .hero-media{
+      border-radius:var(--r-3); overflow:hidden; border:1px solid var(--border);
+      box-shadow:var(--shadow); position:relative; aspect-ratio: 16/10; background:#0f1118;
+    }
+    .hero-media img{width:100%;height:100%;object-fit:cover}
+    .hero-media::after{
+      content:""; position:absolute; inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,.25) 0%, rgba(0,0,0,.45) 100%);
+    }
+    section{padding:var(--sp-6) 0}
+    .section-title{font-size:clamp(24px,3.2vw,32px);margin-bottom:var(--sp-3)}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-3)}
+    .card{background:linear-gradient(180deg,#141825,#111420);border:1px solid var(--border);border-radius:var(--r-2);padding:18px}
+    .card h3{margin:8px 0;color:#dfe1ff;font-size:18px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+    .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-3)}
+    .pf-item{position:relative;border-radius:var(--r-2);overflow:hidden;border:1px solid var(--border);background:#0f1118}
+    .pf-item img{width:100%;height:220px;object-fit:cover}
+    .pf-caption{
+      position:absolute;left:0;right:0;bottom:0;padding:12px 14px;
+      background:linear-gradient(180deg,transparent,rgba(0,0,0,.55));
+      color:#eaeaf6; font-weight:600;
+    }
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-3)}
+    .testimonial{padding:18px;border-radius:var(--r-2);border:1px solid var(--border);background:var(--surface)}
     .testimonial p{color:#d3d6e5}
     .who{color:#9aa0b6;font-size:14px}
-
-    /* Contacto */
-    .contact{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-3)}
     form{display:grid;gap:12px}
-    input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:#0f121b;color:var(--text)}
-    textarea{min-height:120px;resize:vertical}
-    .form-foot{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-    .contact-card{padding:18px;border-radius:14px;border:1px solid var(--border);background:#121421}
+    input,textarea{
+      width:100%;padding:12px 14px;border-radius:var(--r-1);
+      border:1px solid var(--border);background:#0f121b;color:var(--text)
+    }
+    textarea{min-height:130px;resize:vertical}
+    .form-foot{display:flex;gap:var(--sp-3);align-items:center;flex-wrap:wrap}
+    .contact-card{padding:18px;border-radius:var(--r-2);border:1px solid var(--border);background:var(--surface)}
     .contact-row{display:flex;align-items:center;gap:10px;margin:8px 0;color:#cfd2ff}
-
-    /* Footer y botón WhatsApp */
-    footer{padding:24px 0;border-top:1px solid var(--border);background:#0e1017}
-    .fab{position:fixed;right:18px;bottom:18px;display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:999px;background:#1b1f2f;border:1px solid var(--border);box-shadow:0 10px 24px rgba(0,0,0,.45)}
+    footer{padding:var(--sp-4) 0;border-top:1px solid var(--border);background:#0e1017}
+    .footer-wrap{display:grid;grid-template-columns:2fr 1fr 1.2fr;gap:var(--sp-3)}
+    .footer-title{font-weight:600;margin-bottom:8px}
+    .foot-small{color:var(--muted);font-size:14px}
+    .fab{
+      position:fixed;right:18px;bottom:18px;display:flex;align-items:center;gap:10px;
+      padding:12px 14px;border-radius:999px;background:#1b1f2f;border:1px solid var(--border);box-shadow:var(--shadow)
+    }
     .fab .dot{width:10px;height:10px;border-radius:50%;background:#25D366;box-shadow:0 0 10px rgba(37,211,102,.8)}
-
-    /* Responsivo sólido: evita encimados */
-    @media (max-width:980px){
+    @media (max-width:1024px){
       .hero{grid-template-columns:1fr}
-      .services{grid-template-columns:1fr}
-      .grid-2{grid-template-columns:1fr}
-      .contact{grid-template-columns:1fr}
-      .preview{aspect-ratio:16/11}
+      .hero-media{aspect-ratio:16/11}
+    }
+    @media (max-width:860px){
+      .grid-3,.portfolio-grid{grid-template-columns:1fr 1fr}
+      .footer-wrap{grid-template-columns:1fr;gap:var(--sp-5)}
+      .grid-2,.contact{grid-template-columns:1fr}
+    }
+    @media (max-width:520px){
+      .portfolio-grid{grid-template-columns:1fr}
     }
   </style>
 </head>
-<body class="bg-decor">
-  <!-- Header -->
+<body>
   <header>
     <div class="container nav">
       <div class="logo">
         <span class="logo-dot"></span>
         <span>Metrika Agency</span>
       </div>
-      <div class="nav-actions">
-        #serviciosServicios</a>
-        #contactoContactar</a>
-      </div>
+      <nav class="menu">
+        <serviciosServicios</a>
+        #portfolioPortafolio</a>
+        #testimoniosTestimonios</a>
+        <contactoAgendar</a>
+      </nav>
     </div>
   </header>
 
-  <!-- Hero -->
   <div class="container">
     <section class="hero">
       <div>
         <span class="tag"><span class="pulse"></span> Entregas en tiempo récord</span>
         <h1>Social Media Marketing que <span style="background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent">impulsa ventas</span> y construye marca.</h1>
-        <p class="lead">Contenido, anuncios y automatizaciones con resultados medibles — rápido y con excelente presentación.</p>
+        <p class="lead">Contenido, anuncios y automatizaciones con resultados medibles — rápido, elegante y listo para convertir.</p>
         <div class="hero-cta">
           https://wa.me/525625862220?text=Hola%20Metrika%20Agency,%20quiero%20informaci%C3%B3n%20sobre%20gesti%C3%B3n%20de%20redes%20y%20anuncios.Hablar por WhatsApp</a>
           #portfolioVer trabajos</a>
@@ -134,34 +157,64 @@
           <div class="metric"><h3>48 h</h3><p>Web + automatización</p></div>
         </div>
       </div>
-      <div class="preview">
-        https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1400&auto=format&fit=crop
+      <div class="hero-media">
+        https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1600&auto=format&fit=crop
       </div>
     </section>
   </div>
 
-  <!-- Servicios -->
   <section id="servicios">
     <div class="container">
       <h2 class="section-title">Servicios</h2>
-      <div class="services">
+      <div class="grid-3">
         <div class="card">
           <h3>Gestión de Redes</h3>
-          <p>Calendarios, creatividad y comunidad. Métricas claras y crecimiento constante.</p>
+          <p>Calendarios, storytelling, comunidad y métricas. Crecimiento constante y orgánico.</p>
         </div>
         <div class="card">
           <h3>Anuncios Pagos</h3>
-          <p>Meta/Google/TikTok Ads con segmentación precisa y creatividades que convierten.</p>
+          <p>Meta / Google / TikTok Ads. Segmentación precisa y creatividades que convierten.</p>
         </div>
         <div class="card">
           <h3>Identidad & Web</h3>
-          <p>Landing pages en tiempo récord, diseño consistente y mensajes que venden.</p>
+          <p>Landings en tiempo récord, diseño consistente y mensajes que venden.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Testimonios -->
+  <section id="portfolio">
+    <div class="container">
+      <h2 class="section-title">Portafolio</h2>
+      <div class="portfolio-grid">
+        #
+          https://images.unsplash.com/photo-1551817958-20204e6150b2?q=80&w=1200&auto=format&fit=crop
+          <div class="pf-caption">Campaña Local — Retail</div>
+        </a>
+        #
+          <imgs://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop
+          <div class="pf-caption">Funnel Inmobiliario — Leads</div>
+        </a>
+        <
+          https://images.unsplash.com/photo-1529338296731-c5280e10d4a3?q=80&w=1200&auto=format&fit=crop
+          <div class="pf-caption">Branding + Landing Express</div>
+        </a>
+        #
+          https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1200&auto=format&fit=crop
+          <div class="pf-caption">Creatividades que convierten</div>
+        </a>
+        #
+          https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?q=80&w=1200&auto=format&fit=crop
+          <div class="pf-caption">Optimización continua</div>
+        </a>
+        #
+          https://images.unsplash.com/photo-1476610182048-bf0f1e3f0bcf?q=80&w=1200&auto=format&fit=crop
+          <div class="pf-caption">Resultados medibles</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <section id="testimonios">
     <div class="container">
       <h2 class="section-title">Testimonios</h2>
@@ -178,55 +231,61 @@
     </div>
   </section>
 
-  <!-- Contacto -->
   <section id="contacto">
     <div class="container">
       <h2 class="section-title">Contacto</h2>
-    <div class="contact">
-      <form id="contactForm">
-        <input type="text" name="nombre" placeholder="Tu nombre" required>
-        <input type="email" name="email" placeholder="Tu email" required>
-        <textarea name="mensaje" placeholder="Cuéntanos lo que necesitas" required></textarea>
-        <div class="form-foot">
-          <button class="btn btn-primary" type="submit">Enviar</button>
-          <span style="color:var(--muted)">O escríbenos directo por WhatsApp.</span>
-        </div>
-        <p id="formMsg" style="display:none;color:#22c55e">¡Gracias! Te contactaremos en breve.</p>
-      </form>
+      <div class="contact">
+        <form id="contactForm">
+          <input type="text" name="nombre" placeholder="Tu nombre" required/>
+          <input type="email" name="email" placeholder="Tu email" required/>
+          <textarea name="mensaje" placeholder="Cuéntanos lo que necesitas" required></textarea>
+          <div class="form-foot">
+            <button class="btn btn-primary" type="submit">Enviar</button>
+            <span style="color:var(--muted)">O escríbenos directo por WhatsApp.</span>
+          </div>
+          <p id="formMsg" style="display:none;color:#22c55e">¡Gracias! Te contactaremos en breve.</p>
+        </form>
 
-      <div class="contact-card">
-        <div class="contact-row">📧 mailto:diegoazuara@metrikagency.comdiegoazuara@metrikagency.com</a></div>
-        <div class="contact-row">📞 tel:+525625862220+52 56 2586 2220</a></div>
-        <div class="contact-row">💬 https://wa.me/525625862220WhatsApp directo</a></div>
-        <div class="contact-row">📍 CDMX — México y LATAM</div>
+        <div class="contact-card">
+          <div class="contact-row">📧 mailto:diegoazuara@metrikagency.comdiegoazuara@metrikagency.com</a></div>
+          <div class="contact-row">📞 tel:+525625862220+52 56 2586 2220</a></div>
+          <div class="contact-row">💬 https://wa.me/525625862220WhatsApp directo</a></div>
+          <div class="contact-row">📍 CDMX — México y LATAM</div>
+        </div>
       </div>
-    </div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
-    <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-      <div style="display:flex;align-items:center;gap:10px">
-        <span class="logo-dot"></span>
-        <strong>Metrika Agency</strong>
+    <div class="container footer-wrap">
+      <div>
+        <div class="logo" style="margin-bottom:8px">
+          <span class="logo-dot"></span><strong>Metrika Agency</strong>
+        </div>
+        <p class="foot-small">Social Media, anuncios y automatizaciones con diseño, velocidad y resultados.</p>
       </div>
-      <div style="color:#9aa0b6">© <span id="year"></span> Metrika Agency. Todos los derechos reservados.</div>
+      <div>
+        <div class="footer-title">Explorar</div>
+        <p class="foot-small">#portfolioPortafolio</a> · #serviciosServicios</a> · #testimoniosTestimonios</a></p>
+      </div>
+      <div>
+        <div class="footer-title">Newsletter</div>
+        <p class="foot-small">Recibe insights de marketing y crecimiento.</p>
+        <div class="contact-row" style="padding:0">
+          ✉️ <span class="foot-small">Escríbenos y te añadimos: mailto:diegoazuara@metrikagency.comdiegoazuara@metrikagency.com</a></span>
+        </div>
+      </div>
     </div>
+    <div class="container" style="margin-top:12px;color:#9aa0b6">© <span id="year"></span> Metrika Agency. Todos los derechos reservados.</div>
   </footer>
 
-  <!-- FAB WhatsApp -->
-  https://wa.me/525625862220?text=Hola%20Metrika%20Agency,%20me%20interesa%20social%20media%20y%20anuncios.
-    <span class="dot"></span>
-    <span>WhatsApp</span>
+  <a class="fab" href="https://wa.me/525625862220?text=Hola%20Metrika%20Agency,%20me%20interesa%20social%20media%20y%20anuncios." target="_pan>WhatsApp</span>
   </a>
 
   <script>
-    // Año dinámico
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Formulario sin backend
-    document.getElementById('contactForm').addEventListener('submit', (e)=>{
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', (e)=>{
       e.preventDefault();
       const msg = document.getElementById('formMsg');
       msg.style.display = 'block';
@@ -234,4 +293,4 @@
       e.target.reset();
     });
   </script>
-</body>
+</</body>
